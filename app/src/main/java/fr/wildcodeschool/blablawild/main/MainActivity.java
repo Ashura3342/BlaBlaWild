@@ -1,5 +1,6 @@
-package fr.wildcodeschool.blablawild;
+package fr.wildcodeschool.blablawild.main;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,9 +12,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+import fr.wildcodeschool.blablawild.R;
+import fr.wildcodeschool.blablawild.search.ItinerarySearchActivity;
+
+public class MainActivity extends AppCompatActivity implements MainActivityContract.View{
 
     private Button btSearchItinerary;
+    private MainActivityContract.Presenter presenter;
+
+    public static Intent getStartIntent(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +43,22 @@ public class MainActivity extends AppCompatActivity {
 
         btSearchItinerary = findViewById(R.id.bt_main_search);
 
-        btSearchItinerary.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent startIntent = new Intent(MainActivity.this, ItinerarySearchActivity.class);
-                startActivity(startIntent);
-            }
-        });
+        presenter = new MainActivityPresenter(this);
+
+        btSearchItinerary.setOnClickListener(onSearchItineraryListener);
+    }
+
+    private View.OnClickListener onSearchItineraryListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            presenter.onSearchLaunch();
+        }
+    };
+
+    @Override
+    public void searchLaunch() {
+        Intent startIntent = ItinerarySearchActivity.getStartIntent(this);
+        startActivity(startIntent);
     }
 
     @Override

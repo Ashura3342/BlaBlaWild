@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".main.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -19,8 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ItinerarySearchActivity" android:label="@string/search_main_activity"></activity>
-        <activity android:name=".ItineraryListActivity"></activity>
+        <activity android:name=".search.ItinerarySearchActivity" android:label="@string/search_main_activity"></activity>
+        <activity android:name=".list.ItineraryListActivity"></activity>
     </application>
 
 </manifest>
