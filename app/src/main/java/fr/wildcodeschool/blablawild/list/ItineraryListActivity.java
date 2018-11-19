@@ -2,8 +2,8 @@ package fr.wildcodeschool.blablawild.list;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import fr.wildcodeschool.blablawild.R;
 import fr.wildcodeschool.blablawild.models.ItineraryModel;
@@ -11,10 +11,8 @@ import fr.wildcodeschool.blablawild.search.ItinerarySearchActivity;
 
 public class ItineraryListActivity extends AppCompatActivity implements ItineraryListActivityContract.View{
 
-    public static Intent getStartIntent(Context context, ItineraryModel itineraryModel) {
-        Intent intent = new Intent(context, ItineraryListActivity.class);
-        intent.putExtra("itinerary", itineraryModel);
-        return intent;
+    public static Intent getStartIntent(Context context) {
+        return new Intent(context, ItineraryListActivity.class);
     }
 
     private ItineraryModel itineraryModel;

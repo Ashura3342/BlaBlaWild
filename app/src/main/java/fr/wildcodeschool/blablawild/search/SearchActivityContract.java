@@ -1,8 +1,7 @@
 package fr.wildcodeschool.blablawild.search;
 
+import android.os.Bundle;
 import android.support.annotation.StringRes;
-
-import fr.wildcodeschool.blablawild.models.ItineraryModel;
 
 public interface SearchActivityContract {
     interface Presenter {
@@ -12,6 +11,6 @@ public interface SearchActivityContract {
 
     interface View {
         void showError(@StringRes int id);
-        void searchSend(ItineraryModel itineraryModel);
+        void searchSend(Bundle bundle);
     }
 }

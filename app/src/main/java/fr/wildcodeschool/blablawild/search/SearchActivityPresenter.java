@@ -1,5 +1,6 @@
 package fr.wildcodeschool.blablawild.search;
 
+import android.os.Bundle;
 import android.support.annotation.StringRes;
 
 import java.text.DateFormat;
@@ -35,7 +36,9 @@ public class SearchActivityPresenter implements SearchActivityContract.Presenter
             if (departure.isEmpty() || destination.isEmpty()) {
                 onError(R.string.search_string_error);
             } else {
-                view.searchSend(new ItineraryModel(departure, destination, tmp));
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("itinerary", new ItineraryModel(departure, destination, tmp));
+                view.searchSend(bundle);
             }
 
         } catch (ParseException e) {

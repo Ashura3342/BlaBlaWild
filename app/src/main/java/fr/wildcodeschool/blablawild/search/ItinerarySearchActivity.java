@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import fr.wildcodeschool.blablawild.R;
 import fr.wildcodeschool.blablawild.list.ItineraryListActivity;
-import fr.wildcodeschool.blablawild.models.ItineraryModel;
 
 public class ItinerarySearchActivity extends AppCompatActivity implements SearchActivityContract.View {
 
@@ -24,8 +23,7 @@ public class ItinerarySearchActivity extends AppCompatActivity implements Search
 
 
     public static Intent getStartIntent(Context context) {
-        Intent intent = new Intent(context, ItinerarySearchActivity.class);
-        return intent;
+        return  new Intent(context, ItinerarySearchActivity.class);
     }
 
     @Override
@@ -55,8 +53,9 @@ public class ItinerarySearchActivity extends AppCompatActivity implements Search
 
 
     @Override
-    public void searchSend(ItineraryModel itineraryModel) {
-        Intent intent = ItineraryListActivity.getStartIntent(this, itineraryModel);
+    public void searchSend(Bundle bundle) {
+        Intent intent = ItineraryListActivity.getStartIntent(this);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 
