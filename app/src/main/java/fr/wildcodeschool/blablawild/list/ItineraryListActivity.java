@@ -22,7 +22,7 @@ public class ItineraryListActivity extends AppCompatActivity implements Itinerar
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_itinerary_list);
         Intent intent = getIntent();
-        presenter = new ItineraryListActivityPresenter(this, intent);
+        presenter = new ItineraryListActivityPresenter(this, intent.getExtras());
     }
 
     @Override

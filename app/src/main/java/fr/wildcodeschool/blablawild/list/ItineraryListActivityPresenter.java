@@ -1,6 +1,6 @@
 package fr.wildcodeschool.blablawild.list;
 
-import android.content.Intent;
+import android.os.Bundle;
 
 import fr.wildcodeschool.blablawild.R;
 import fr.wildcodeschool.blablawild.models.ItineraryModel;
@@ -9,15 +9,15 @@ public class ItineraryListActivityPresenter implements ItineraryListActivityCont
 
     ItineraryListActivityContract.View view;
 
-    public ItineraryListActivityPresenter(ItineraryListActivityContract.View view, Intent intent) {
+    public ItineraryListActivityPresenter(ItineraryListActivityContract.View view, Bundle bundle) {
         this.view = view;
-        onViewItinerary(intent);
+        onViewItinerary(bundle);
     }
 
     @Override
-    public void onViewItinerary(Intent intent) {
-        if (intent.hasExtra("itinerary")) {
-            view.viewItinerary((ItineraryModel)intent.getSerializableExtra("itinerary"));
+    public void onViewItinerary(Bundle bundle) {
+        if (bundle.containsKey("itinerary")) {
+            view.viewItinerary((ItineraryModel)bundle.getSerializable("itinerary"));
         } else {
             onError(R.string.search_string_error);
         }
