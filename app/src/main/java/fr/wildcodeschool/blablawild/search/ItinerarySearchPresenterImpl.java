@@ -9,14 +9,21 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import fr.wildcodeschool.blablawild.R;
-import fr.wildcodeschool.blablawild.models.ItineraryModel;
+import fr.wildcodeschool.blablawild.data.ItineraryData;
 
-public class SearchActivityPresenter implements SearchActivityContract.Presenter {
+public class ItinerarySearchPresenterImpl<V extends ItinerarySearchView>
+        implements ItinerarySearchPresenter<V> {
 
-    private SearchActivityContract.View view;
+    private V view;
 
-    public SearchActivityPresenter(SearchActivityContract.View view) {
+    @Override
+    public void attach(V view) {
         this.view = view;
+    }
+
+    @Override
+    public void detach() {
+        this.view = null;
     }
 
     private Date stringAsDate(String date) throws ParseException {
@@ -37,7 +44,7 @@ public class SearchActivityPresenter implements SearchActivityContract.Presenter
                 onError(R.string.search_string_error);
             } else {
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("itinerary", new ItineraryModel(departure, destination, tmp));
+                bundle.putSerializable("itinerary", new ItineraryData(departure, destination, tmp));
                 view.searchSend(bundle);
             }
 

@@ -15,10 +15,10 @@ import android.widget.Button;
 import fr.wildcodeschool.blablawild.R;
 import fr.wildcodeschool.blablawild.search.ItinerarySearchActivity;
 
-public class MainActivity extends AppCompatActivity implements MainActivityContract.View{
+public class MainActivity extends AppCompatActivity implements MainView{
 
     private Button btSearchItinerary;
-    private MainActivityContract.Presenter presenter;
+    private MainPresenter<MainView> presenter = new MainPresenterImpl<MainView>();
 
     public static Intent getStartIntent(Context context) {
         return new Intent(context, MainActivity.class);
@@ -41,21 +41,26 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         });
 
         btSearchItinerary = findViewById(R.id.bt_main_search);
-
-        presenter = new MainActivityPresenter(this);
+        presenter.attach(this);
 
         btSearchItinerary.setOnClickListener(onSearchItineraryListener);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.detach();
     }
 
     private View.OnClickListener onSearchItineraryListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            presenter.onSearchLaunch();
+            presenter.onNavigateToSearchItineraty();
         }
     };
 
     @Override
-    public void searchLaunch() {
+    public void navigateToSearchItinerary() {
         Intent startIntent = ItinerarySearchActivity.getStartIntent(this);
         startActivity(startIntent);
     }

@@ -1,14 +1,14 @@
-package fr.wildcodeschool.blablawild.models;
+package fr.wildcodeschool.blablawild.data;
 
 import java.io.Serializable;
 import java.util.Date;
 
-public class ItineraryModel implements Serializable {
+public class ItineraryData implements Serializable {
     private String departure;
     private String destination;
     private Date date;
 
-    public ItineraryModel(String departure, String destination, Date date) {
+    public ItineraryData(String departure, String destination, Date date) {
         this.departure = departure;
         this.destination = destination;
         this.date = date;

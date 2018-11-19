@@ -12,9 +12,11 @@ import android.widget.Toast;
 import fr.wildcodeschool.blablawild.R;
 import fr.wildcodeschool.blablawild.list.ItineraryListActivity;
 
-public class ItinerarySearchActivity extends AppCompatActivity implements SearchActivityContract.View {
+public class ItinerarySearchActivity extends AppCompatActivity
+    implements ItinerarySearchView{
 
-    private SearchActivityContract.Presenter presenter;
+    private ItinerarySearchPresenter<ItinerarySearchView> presenter
+            = new ItinerarySearchPresenterImpl<ItinerarySearchView>();
 
     private EditText departure;
     private EditText destination;
@@ -31,16 +33,21 @@ public class ItinerarySearchActivity extends AppCompatActivity implements Search
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_itinerary_search);
 
-        presenter = new SearchActivityPresenter(this);
-
         departure = findViewById(R.id.search_departure_edit);
         destination = findViewById(R.id.search_destination_edit);
         date = findViewById(R.id.search_date_edit);
         searchSend = findViewById(R.id.bt_search_send);
 
+        presenter.attach(this);
+
         searchSend.setOnClickListener(onSearchSendListener);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.detach();
+    }
 
     private View.OnClickListener onSearchSendListener = new View.OnClickListener() {
         @Override

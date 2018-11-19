@@ -6,34 +6,40 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import fr.wildcodeschool.blablawild.R;
-import fr.wildcodeschool.blablawild.models.ItineraryModel;
-import fr.wildcodeschool.blablawild.search.ItinerarySearchActivity;
+import fr.wildcodeschool.blablawild.data.ItineraryData;
 
-public class ItineraryListActivity extends AppCompatActivity implements ItineraryListActivityContract.View{
+public class ItineraryListActivity extends AppCompatActivity implements ItineraryListView{
 
     public static Intent getStartIntent(Context context) {
         return new Intent(context, ItineraryListActivity.class);
     }
 
-    private ItineraryListActivityContract.Presenter presenter;
+    private ItineraryListPresenter<ItineraryListView> presenter
+            = new ItineraryListPresenterImpl<ItineraryListView>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_itinerary_list);
         Intent intent = getIntent();
-        presenter = new ItineraryListActivityPresenter(this, intent.getExtras());
+        presenter.attach(this);
+        presenter.onViewItinerary(intent.getExtras());
     }
 
     @Override
-    public void viewItinerary(ItineraryModel itineraryModel) {
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.detach();
+    }
+
+    @Override
+    public void viewItinerary(ItineraryData itineraryData) {
         setTitle(String.format("%s>>%s",
-                itineraryModel.getDeparture(), itineraryModel.getDestination()));
+                itineraryData.getDeparture(), itineraryData.getDestination()));
     }
 
     @Override
     public void showError(int id) {
-        Intent intent = ItinerarySearchActivity.getStartIntent(this);
-        startActivity(intent);
+        finish();
     }
 }
