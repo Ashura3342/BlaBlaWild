@@ -15,7 +15,6 @@ public class ItineraryListActivity extends AppCompatActivity implements Itinerar
         return new Intent(context, ItineraryListActivity.class);
     }
 
-    private ItineraryModel itineraryModel;
     private ItineraryListActivityContract.Presenter presenter;
 
     @Override

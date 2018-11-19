@@ -8,10 +8,6 @@ public class ItineraryModel implements Serializable {
     private String destination;
     private Date date;
 
-    public ItineraryModel() {
-        this("", "", null);
-    }
-
     public ItineraryModel(String departure, String destination, Date date) {
         this.departure = departure;
         this.destination = destination;
@@ -22,7 +18,7 @@ public class ItineraryModel implements Serializable {
         return departure;
     }
 
-    public void setdeparture(String departure) {
+    public void setDeparture(String departure) {
         this.departure = departure;
     }
 
@@ -42,12 +38,4 @@ public class ItineraryModel implements Serializable {
         this.date = date;
     }
 
-    @Override
-    public String toString() {
-        return "ItineraryModel{" +
-                "departure='" + departure + '\'' +
-                ", destination='" + destination + '\'' +
-                ", date=" + date +
-                '}';
-    }
 }
