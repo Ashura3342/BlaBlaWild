@@ -5,9 +5,10 @@ import android.os.Bundle;
 import fr.wildcodeschool.blablawild.R;
 import fr.wildcodeschool.blablawild.data.ItineraryData;
 
-public class ItineraryListPresenterImpl<V extends ItineraryListView> implements ItineraryListPresenter<V> {
+public class ItineraryListPresenterImpl<V extends ItineraryListView>
+        implements ItineraryListPresenter<V> {
 
-    V view;
+    private V view;
 
     @Override
     public void attach(V view) {

@@ -18,7 +18,7 @@ import fr.wildcodeschool.blablawild.search.ItinerarySearchActivity;
 public class MainActivity extends AppCompatActivity implements MainView{
 
     private Button btSearchItinerary;
-    private MainPresenter<MainView> presenter = new MainPresenterImpl<MainView>();
+    private MainPresenter<MainView> presenter = new MainPresenterImpl<>();
 
     public static Intent getStartIntent(Context context) {
         return new Intent(context, MainActivity.class);
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements MainView{
     private View.OnClickListener onSearchItineraryListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            presenter.onNavigateToSearchItineraty();
+            presenter.onNavigateToSearchItinerary();
         }
     };
 

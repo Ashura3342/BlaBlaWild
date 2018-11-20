@@ -2,10 +2,10 @@ package fr.wildcodeschool.blablawild.main;
 
 public class MainPresenterImpl<V extends MainView> implements MainPresenter<V> {
 
-    V view;
+    private V view;
 
     @Override
-    public void onNavigateToSearchItineraty() {
+    public void onNavigateToSearchItinerary() {
         view.navigateToSearchItinerary();
     }
 
