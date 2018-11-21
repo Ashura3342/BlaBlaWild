@@ -76,8 +76,8 @@ public class ItineraryListActivity extends AppCompatActivity implements Itinerar
     }
 
     @Override
-    public void notifyRangeInsertTripRow(int min, int max) {
-        tripRecyclerAdapter.notifyItemRangeInserted(min, max);
+    public void notifyInsertTripRow(int size) {
+        tripRecyclerAdapter.notifyItemRangeInserted(0, size);
     }
 
     @Override

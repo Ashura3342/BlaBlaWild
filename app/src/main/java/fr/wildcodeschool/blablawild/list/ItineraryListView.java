@@ -7,6 +7,6 @@ import fr.wildcodeschool.blablawild.data.ItineraryData;
 
 public interface ItineraryListView extends DateView {
     void viewItinerary(ItineraryData itineraryData);
-    void notifyRangeInsertTripRow(int min, int max);
+    void notifyInsertTripRow(int size);
     void showError(@StringRes int id);
 }

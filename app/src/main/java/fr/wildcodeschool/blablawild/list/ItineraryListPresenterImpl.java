@@ -25,7 +25,7 @@ public class ItineraryListPresenterImpl<V extends ItineraryListView>
         } catch (ParseException e) {
             e.printStackTrace();
         } finally {
-            view.notifyRangeInsertTripRow(0, results.size());
+            view.notifyInsertTripRow(results.size());
         }
     }
 
