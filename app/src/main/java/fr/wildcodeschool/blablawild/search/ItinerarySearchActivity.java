@@ -114,11 +114,6 @@ public class ItinerarySearchActivity extends AppCompatActivity
     }
 
     @Override
-    public String dateAsString(Date date) {
-        return sdf.format(date);
-    }
-
-    @Override
     public void searchSend(ItineraryData itineraryData) {
         Intent intent = ItineraryListActivity.getStartIntent(this);
         intent.putExtra("itinerary", itineraryData);

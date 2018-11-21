@@ -9,4 +9,5 @@ public interface ItineraryListPresenter<V extends ItineraryListView> extends Mvp
     void onError(int id);
     void onBindRepositoryRowViewAtPosition(TripRowView tripRowView, int position);
     int getTripsRowsCount();
+
 }

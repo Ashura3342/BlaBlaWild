@@ -5,6 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import fr.wildcodeschool.blablawild.R;
 
 public class TripViewHolder extends RecyclerView.ViewHolder implements TripRowView {
@@ -13,6 +16,9 @@ public class TripViewHolder extends RecyclerView.ViewHolder implements TripRowVi
     private TextView priceView;
     private TextView firstNameView;
     private TextView lastNameView;
+
+    private SimpleDateFormat sdf
+            = new SimpleDateFormat("dd/MM/YYYY hh:mm aaa");
 
     public TripViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -23,9 +29,7 @@ public class TripViewHolder extends RecyclerView.ViewHolder implements TripRowVi
     }
 
     @Override
-    public void setDate(String date) {
-        dateView.setText(date);
-    }
+    public void setDate(Date date) { dateView.setText(sdf.format(date)); }
 
     @Override
     public void setPrice(int price) {

@@ -1,6 +1,7 @@
 package fr.wildcodeschool.blablawild.list;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,14 +15,16 @@ public class ItineraryListPresenterImpl<V extends ItineraryListView>
 
     private V view;
     private List<TripModel> results = new ArrayList<>();
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY-HH:mm");
 
     private void loadData() {
+
         try {
-            results.add(new TripModel("Eric", "Cartman", view.stringAsDate("21/02/2017-15:30"), 15));
-            results.add(new TripModel("Stan", "Marsh", view.stringAsDate("21/02/2017-16:00"), 20));
-            results.add(new TripModel("Kenny", "Broflovski",view.stringAsDate("21/02/2017-16:30"), 16));
-            results.add(new TripModel("Kyle", "McCormick", view.stringAsDate("21/02/2017-17:00"), 40));
-            results.add(new TripModel("Wendy", "Testaburger", view.stringAsDate("21/02/2017-17:30"), 20));
+            results.add(new TripModel("Eric", "Cartman", sdf.parse("21/02/2017-15:30"), 15));
+            results.add(new TripModel("Stan", "Marsh", sdf.parse("21/02/2017-16:00"), 20));
+            results.add(new TripModel("Kenny", "Broflovski", sdf.parse("21/02/2017-16:30"), 16));
+            results.add(new TripModel("Kyle", "McCormick", sdf.parse("21/02/2017-17:00"), 40));
+            results.add(new TripModel("Wendy", "Testaburger", sdf.parse("21/02/2017-17:30"), 20));
         } catch (ParseException e) {
             e.printStackTrace();
         } finally {
@@ -52,7 +55,7 @@ public class ItineraryListPresenterImpl<V extends ItineraryListView>
     @Override
     public void onBindRepositoryRowViewAtPosition(TripRowView tripRowView, int position) {
         TripModel trip = results.get(position);
-        tripRowView.setDate(view.dateAsString(trip.getDate()));
+        tripRowView.setDate(trip.getDate());
         tripRowView.setFirstName(trip.getFirstName());
         tripRowView.setLastName(trip.getLastName());
         tripRowView.setPrice(trip.getPrice());
