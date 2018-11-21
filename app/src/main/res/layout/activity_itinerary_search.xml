@@ -71,6 +71,7 @@
         android:ems="10"
         android:hint="@string/date_example_text"
         android:inputType="date"
+        android:focusable="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/date_text"
         android:autofillHints="" />

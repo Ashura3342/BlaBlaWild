@@ -3,9 +3,7 @@ package fr.wildcodeschool.blablawild.search;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import fr.wildcodeschool.blablawild.R;
@@ -26,20 +24,11 @@ public class ItinerarySearchPresenterImpl<V extends ItinerarySearchView>
         this.view = null;
     }
 
-    private Date stringAsDate(String date) throws ParseException {
-        if (date.isEmpty()) {
-            return null;
-        } else {
-            DateFormat sdf = SimpleDateFormat.getDateInstance(DateFormat.SHORT);
-            return sdf.parse(date);
-        }
-    }
-
     @Override
     public void onSearchSend(String departure, String destination, String date) {
         Date tmp;
         try {
-            tmp = stringAsDate(date);
+            tmp = view.stringAsDate(date);
             if (departure.isEmpty() || destination.isEmpty()) {
                 onError(R.string.search_string_error);
             } else {
