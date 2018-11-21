@@ -1,7 +1,5 @@
 package fr.wildcodeschool.blablawild.list;
 
-import android.os.Bundle;
-
 import fr.wildcodeschool.blablawild.R;
 import fr.wildcodeschool.blablawild.data.ItineraryData;
 
@@ -21,9 +19,9 @@ public class ItineraryListPresenterImpl<V extends ItineraryListView>
     }
 
     @Override
-    public void onViewItinerary(Bundle bundle) {
-        if (bundle.containsKey("itinerary")) {
-            view.viewItinerary((ItineraryData)bundle.getSerializable("itinerary"));
+    public void onViewItinerary(ItineraryData itineraryData) {
+        if (itineraryData != null) {
+            view.viewItinerary(itineraryData);
         } else {
             onError(R.string.search_string_error);
         }

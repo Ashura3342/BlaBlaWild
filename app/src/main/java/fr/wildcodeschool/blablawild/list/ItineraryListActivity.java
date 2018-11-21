@@ -15,7 +15,7 @@ public class ItineraryListActivity extends AppCompatActivity implements Itinerar
     }
 
     private ItineraryListPresenter<ItineraryListView> presenter
-            = new ItineraryListPresenterImpl<ItineraryListView>();
+            = new ItineraryListPresenterImpl<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class ItineraryListActivity extends AppCompatActivity implements Itinerar
         setContentView(R.layout.activity_itinerary_list);
         Intent intent = getIntent();
         presenter.attach(this);
-        presenter.onViewItinerary(intent.getExtras());
+        presenter.onViewItinerary((ItineraryData)intent.getSerializableExtra("itinerary"));
     }
 
     @Override

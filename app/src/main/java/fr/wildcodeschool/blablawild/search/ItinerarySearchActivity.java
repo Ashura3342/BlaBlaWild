@@ -18,6 +18,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import fr.wildcodeschool.blablawild.R;
+import fr.wildcodeschool.blablawild.data.ItineraryData;
 import fr.wildcodeschool.blablawild.list.ItineraryListActivity;
 
 public class ItinerarySearchActivity extends AppCompatActivity
@@ -114,9 +115,9 @@ public class ItinerarySearchActivity extends AppCompatActivity
     }
 
     @Override
-    public void searchSend(Bundle bundle) {
+    public void searchSend(ItineraryData itineraryData) {
         Intent intent = ItineraryListActivity.getStartIntent(this);
-        intent.putExtras(bundle);
+        intent.putExtra("itinerary", itineraryData);
         startActivity(intent);
     }
 

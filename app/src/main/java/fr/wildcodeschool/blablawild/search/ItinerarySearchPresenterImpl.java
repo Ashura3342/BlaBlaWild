@@ -1,8 +1,5 @@
 package fr.wildcodeschool.blablawild.search;
 
-import android.os.Bundle;
-import android.support.annotation.StringRes;
-
 import java.text.ParseException;
 import java.util.Date;
 
@@ -32,9 +29,7 @@ public class ItinerarySearchPresenterImpl<V extends ItinerarySearchView>
             if (departure.isEmpty() || destination.isEmpty()) {
                 onError(R.string.search_string_error);
             } else {
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("itinerary", new ItineraryData(departure, destination, tmp));
-                view.searchSend(bundle);
+                view.searchSend(new ItineraryData(departure, destination, tmp));
             }
 
         } catch (ParseException e) {
@@ -43,7 +38,7 @@ public class ItinerarySearchPresenterImpl<V extends ItinerarySearchView>
     }
 
     @Override
-    public void onError(@StringRes int id) {
+    public void onError(int id) {
         view.showError(id);
     }
 }
