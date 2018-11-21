@@ -2,12 +2,13 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itinerary_search_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".search.ItinerarySearchActivity">
 
     <EditText
-        android:id="@+id/search_destination_edit"
+        android:id="@+id/itinerary_search_destination_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -17,20 +18,20 @@
         android:hint="@string/destination_text"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/destination_text" />
+        app:layout_constraintTop_toBottomOf="@+id/itinerary_search_destination_text" />
 
     <TextView
-        android:id="@+id/destination_text"
+        android:id="@+id/itinerary_search_destination_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="@string/destination_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_departure_edit" />
+        app:layout_constraintTop_toBottomOf="@+id/itinerary_search_departure_edit" />
 
     <TextView
-        android:id="@+id/departure_text"
+        android:id="@+id/itinerary_search_departure_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -40,7 +41,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/search_departure_edit"
+        android:id="@+id/itinerary_search_departure_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -50,34 +51,34 @@
         android:hint="@string/departure_text"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/departure_text" />
+        app:layout_constraintTop_toBottomOf="@+id/itinerary_search_departure_text" />
 
     <TextView
-        android:id="@+id/date_text"
+        android:id="@+id/itinerary_search_date_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="@string/date_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_destination_edit" />
+        app:layout_constraintTop_toBottomOf="@+id/itinerary_search_destination_edit" />
 
     <EditText
-        android:id="@+id/search_date_edit"
+        android:id="@+id/itinerary_search_date_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
+        android:autofillHints=""
         android:ems="10"
+        android:focusable="false"
         android:hint="@string/date_example_text"
         android:inputType="date"
-        android:focusable="false"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/date_text"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/itinerary_search_date_text" />
 
     <Button
-        android:id="@+id/bt_search_send"
+        android:id="@+id/itinerary_search_send_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -86,6 +87,6 @@
         android:text="@string/search_upper_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_date_edit" />
+        app:layout_constraintTop_toBottomOf="@+id/itinerary_search_date_edit" />
 
 </android.support.constraint.ConstraintLayout>

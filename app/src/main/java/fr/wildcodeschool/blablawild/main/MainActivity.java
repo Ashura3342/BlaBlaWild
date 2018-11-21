@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements MainView{
             }
         });
 
-        btSearchItinerary = findViewById(R.id.bt_main_search);
+        btSearchItinerary = findViewById(R.id.main_search_button);
         presenter.attach(this);
 
         btSearchItinerary.setOnClickListener(onSearchItineraryListener);

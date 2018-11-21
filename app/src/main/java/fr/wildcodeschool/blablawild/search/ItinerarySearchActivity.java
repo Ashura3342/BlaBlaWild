@@ -44,10 +44,10 @@ public class ItinerarySearchActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_itinerary_search);
 
-        departure = findViewById(R.id.search_departure_edit);
-        destination = findViewById(R.id.search_destination_edit);
-        date = findViewById(R.id.search_date_edit);
-        searchSend = findViewById(R.id.bt_search_send);
+        departure = findViewById(R.id.itinerary_search_departure_edit);
+        destination = findViewById(R.id.itinerary_search_destination_edit);
+        date = findViewById(R.id.itinerary_search_date_edit);
+        searchSend = findViewById(R.id.itinerary_search_send_button);
 
         presenter.attach(this);
 
@@ -106,12 +106,16 @@ public class ItinerarySearchActivity extends AppCompatActivity
         }
     };
 
-
     @Override
     public Date stringAsDate(String date) throws ParseException {
         if (date.isEmpty())
             return null;
         return sdf.parse(date);
+    }
+
+    @Override
+    public String dateAsString(Date date) {
+        return sdf.format(date);
     }
 
     @Override

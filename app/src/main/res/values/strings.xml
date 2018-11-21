@@ -10,4 +10,9 @@
     <string name="search_upper_text">SEARCH</string>
     <string name="search_string_error">Please ! fill departure and destination !</string>
     <string name="search_date_error">Please ! fill date correctly !</string>
+    <string name="date_time_1970">31/12/1970 03:30 PM</string>
+    <string name="price_exemple">$19</string>
+    <string name="frist_name">FristName</string>
+    <string name="last_name">LastName</string>
+    <string name="no_itinerary_found">Sorry !  we aren\'t found Itinerary !</string>
 </resources>
