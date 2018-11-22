@@ -4,32 +4,21 @@ import java.text.ParseException;
 import java.util.Date;
 
 import fr.wildcodeschool.blablawild.R;
+import fr.wildcodeschool.blablawild.base.BasePresenter;
 import fr.wildcodeschool.blablawild.data.ItineraryData;
 
-public class ItinerarySearchPresenterImpl<V extends ItinerarySearchView>
+public class ItinerarySearchPresenterImpl<V extends ItinerarySearchView> extends BasePresenter<V>
         implements ItinerarySearchPresenter<V> {
-
-    private V view;
-
-    @Override
-    public void attach(V view) {
-        this.view = view;
-    }
-
-    @Override
-    public void detach() {
-        this.view = null;
-    }
 
     @Override
     public void onSearchSend(String departure, String destination, String date) {
         Date tmp;
         try {
-            tmp = view.stringAsDate(date);
+            tmp = getView().stringAsDate(date);
             if (departure.isEmpty() || destination.isEmpty()) {
                 onError(R.string.search_string_error);
             } else {
-                view.searchSend(new ItineraryData(departure, destination, tmp));
+                getView().searchSend(new ItineraryData(departure, destination, tmp));
             }
 
         } catch (ParseException e) {
@@ -39,6 +28,6 @@ public class ItinerarySearchPresenterImpl<V extends ItinerarySearchView>
 
     @Override
     public void onError(int id) {
-        view.showError(id);
+        getView().showError(id);
     }
 }

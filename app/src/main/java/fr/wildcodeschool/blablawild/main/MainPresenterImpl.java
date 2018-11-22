@@ -1,21 +1,12 @@
 package fr.wildcodeschool.blablawild.main;
 
-public class MainPresenterImpl<V extends MainView> implements MainPresenter<V> {
+import fr.wildcodeschool.blablawild.base.BasePresenter;
 
-    private V view;
+public class MainPresenterImpl<V extends MainView> extends BasePresenter<V>
+        implements MainPresenter<V> {
 
     @Override
     public void onNavigateToSearchItinerary() {
-        view.navigateToSearchItinerary();
-    }
-
-    @Override
-    public void attach(V view) {
-        this.view = view;
-    }
-
-    @Override
-    public void detach() {
-        this.view = null;
+        getView().navigateToSearchItinerary();
     }
 }

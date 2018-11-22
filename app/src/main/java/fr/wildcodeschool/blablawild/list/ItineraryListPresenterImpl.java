@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.wildcodeschool.blablawild.R;
+import fr.wildcodeschool.blablawild.base.BasePresenter;
 import fr.wildcodeschool.blablawild.data.ItineraryData;
 import fr.wildcodeschool.blablawild.list.adapter.TripRowView;
 import fr.wildcodeschool.blablawild.models.TripModel;
 
-public class ItineraryListPresenterImpl<V extends ItineraryListView>
+public class ItineraryListPresenterImpl<V extends ItineraryListView> extends BasePresenter<V>
         implements ItineraryListPresenter<V> {
 
-    private V view;
     private List<TripModel> results = new ArrayList<>();
     private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY-HH:mm");
 
@@ -28,25 +28,15 @@ public class ItineraryListPresenterImpl<V extends ItineraryListView>
         } catch (ParseException e) {
             e.printStackTrace();
         } finally {
-            view.notifyInsertTripRow(results.size());
+            getView().notifyInsertTripRow(results.size());
         }
-    }
-
-    @Override
-    public void attach(V view) {
-        this.view = view;
-    }
-
-    @Override
-    public void detach() {
-        view = null;
     }
 
     @Override
     public void onViewItinerary(ItineraryData itineraryData) {
         if (itineraryData != null) {
             loadData();
-            view.viewItinerary(itineraryData);
+            getView().viewItinerary(itineraryData);
         } else {
             onError(R.string.no_itinerary_found);
         }
@@ -68,6 +58,6 @@ public class ItineraryListPresenterImpl<V extends ItineraryListView>
 
     @Override
     public void onError(int id) {
-        view.showError(id);
+        getView().showError(id);
     }
 }
