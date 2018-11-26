@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import fr.wildcodeschool.blablawild.R;
 
@@ -18,8 +19,8 @@ public class TripViewHolder extends RecyclerView.ViewHolder implements TripRowVi
     private TextView lastNameView;
 
     private SimpleDateFormat sdf
-            = new SimpleDateFormat("dd/MM/YYYY hh:mm aaa");
-
+            = new SimpleDateFormat("dd/MM/YYYY hh:mm aaa", Locale.getDefault());
+    
     public TripViewHolder(@NonNull View itemView) {
         super(itemView);
         dateView = itemView.findViewById(R.id.row_trip_date);

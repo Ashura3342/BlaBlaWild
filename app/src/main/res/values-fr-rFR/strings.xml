@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Parameters</string>
+    <string name="search_itinerary">Recherche un nouvel Itinaire</string>
+    <string name="search_main_activity">Recherche</string>
+    <string name="departure_text">Depart</string>
+    <string name="search_upper_text">RECHERCHE</string>
+    <string name="search_string_error">S\'il vous plaît ! Renseignez le depart et la destination</string>
+    <string name="search_date_error">S\'il vous plaît ! Renseignez la date correctement !</string>
+    <string name="price_exemple">19€</string>
+    <string name="frist_name">Prenom</string>
+    <string name="last_name">Nom</string>
+    <string name="no_itinerary_found">Désolez ! nous n\'avons pas trouver d\'Itinaire</string>
+    <string name="destination_text">Destination</string>
+    <string name="date_text">Date</string>
+    <string name="date_example_text">01/01/1970</string>
+    <string name="date_time_1970">31/12/1970 03:30 PM</string>
+</resources>

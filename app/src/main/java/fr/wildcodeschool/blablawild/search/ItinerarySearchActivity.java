@@ -115,8 +115,7 @@ public class ItinerarySearchActivity extends AppCompatActivity
 
     @Override
     public void searchSend(ItineraryData itineraryData) {
-        Intent intent = ItineraryListActivity.getStartIntent(this);
-        intent.putExtra("itinerary", itineraryData);
+        Intent intent = ItineraryListActivity.getStartIntent(this, itineraryData);
         startActivity(intent);
     }
 

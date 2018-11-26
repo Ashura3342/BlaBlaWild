@@ -14,16 +14,17 @@ import fr.wildcodeschool.blablawild.list.adapter.TripRecyclerAdapter;
 
 public class ItineraryListActivity extends AppCompatActivity implements ItineraryListView{
 
-    public static Intent getStartIntent(Context context) {
-        return new Intent(context, ItineraryListActivity.class);
+    private static final String GET_EXTRA_DATA = "itinerary";
+
+    public static Intent getStartIntent(Context context, ItineraryData data) {
+        return data != null ? new Intent(context, ItineraryListActivity.class)
+                .putExtra(GET_EXTRA_DATA, data) : null;
     }
 
     private ItineraryListPresenter<ItineraryListView> presenter
             = new ItineraryListPresenterImpl<>();
 
     private TripRecyclerAdapter tripRecyclerAdapter;
-
-    private RecyclerView tripListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class ItineraryListActivity extends AppCompatActivity implements Itinerar
 
         presenter.attach(this);
 
-        tripListView = findViewById(R.id.itinerary_list_recyler_view);
+        RecyclerView tripListView = findViewById(R.id.itinerary_list_recyler_view);
 
         tripListView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -40,7 +41,8 @@ public class ItineraryListActivity extends AppCompatActivity implements Itinerar
         tripListView.setAdapter(tripRecyclerAdapter);
 
         Intent intent = getIntent();
-        presenter.onViewItinerary((ItineraryData)intent.getSerializableExtra("itinerary"));
+        if (intent.hasExtra(GET_EXTRA_DATA))
+            presenter.onViewItinerary((ItineraryData)intent.getSerializableExtra(GET_EXTRA_DATA));
     }
 
     @Override

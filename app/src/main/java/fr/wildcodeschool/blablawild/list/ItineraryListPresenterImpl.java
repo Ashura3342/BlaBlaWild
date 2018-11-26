@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import fr.wildcodeschool.blablawild.R;
 import fr.wildcodeschool.blablawild.base.BasePresenter;
@@ -15,7 +16,7 @@ public class ItineraryListPresenterImpl<V extends ItineraryListView> extends Bas
         implements ItineraryListPresenter<V> {
 
     private List<TripModel> results = new ArrayList<>();
-    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY-HH:mm");
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY-HH:mm", Locale.FRANCE);
 
     private void loadData() {
 
