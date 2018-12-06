@@ -15,5 +15,5 @@
     <string name="price_exemple">$19</string>
     <string name="frist_name">FristName</string>
     <string name="last_name">LastName</string>
-    <string name="no_itinerary_found">Sorry !  we haven't found Itinerary !</string>
+    <string name="no_itinerary_found">Sorry !  we haven\'t found Itinerary !</string>
 </resources>
