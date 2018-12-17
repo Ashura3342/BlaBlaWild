@@ -8,6 +8,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import fr.wildcodeschool.blablawild.R;
 import fr.wildcodeschool.blablawild.data.ItineraryData;
 import fr.wildcodeschool.blablawild.list.adapter.TripRecyclerAdapter;
@@ -15,6 +19,8 @@ import fr.wildcodeschool.blablawild.list.adapter.TripRecyclerAdapter;
 public class ItineraryListActivity extends AppCompatActivity implements ItineraryListView{
 
     private static final String GET_EXTRA_DATA = "itinerary";
+
+    private DateFormat sdf = SimpleDateFormat.getDateInstance(DateFormat.SHORT);
 
     public static Intent getStartIntent(Context context, ItineraryData data) {
         return data != null ? new Intent(context, ItineraryListActivity.class)
@@ -55,6 +61,9 @@ public class ItineraryListActivity extends AppCompatActivity implements Itinerar
     public void viewItinerary(ItineraryData itineraryData) {
         setTitle(String.format("%s>>%s",
                 itineraryData.getDeparture(), itineraryData.getDestination()));
+        String date = sdf.format(itineraryData.getDate());
+        Toast.makeText(this, date, Toast.LENGTH_SHORT)
+                .show();
     }
 
     @Override
