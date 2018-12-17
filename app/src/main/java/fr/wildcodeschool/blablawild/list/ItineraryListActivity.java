@@ -42,7 +42,7 @@ public class ItineraryListActivity extends AppCompatActivity implements Itinerar
 
         Intent intent = getIntent();
         if (intent.hasExtra(GET_EXTRA_DATA))
-            presenter.onViewItinerary((ItineraryData)intent.getSerializableExtra(GET_EXTRA_DATA));
+            presenter.onViewItinerary((ItineraryData)intent.getParcelableExtra(GET_EXTRA_DATA));
     }
 
     @Override
